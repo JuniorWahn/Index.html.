@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HUD HAMIDA | General Trading, Consulting, Engineering</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B2545;--teal:#1B7C94;--sky:#8EC5D6;--bg:#F1F5F8;--paper:#fff;--card:#E3EBF2;--ink:#0B2545;--muted:#4F6277;--line:#CBD7E2;--onnavy:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D1521;--paper:#0A111B;--card:#16222F;--ink:#E6EEF5;--muted:#9DB0C3;--line:#243445;--teal:#5FB4CC;--navy:#0B2545}}
+:root[data-theme="dark"]{--bg:#0D1521;--paper:#0A111B;--card:#16222F;--ink:#E6EEF5;--muted:#9DB0C3;--line:#243445;--teal:#5FB4CC;--navy:#0B2545}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.7 "Hanken Grotesk",system-ui,sans-serif}
+h1,h2,h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;line-height:1.02;margin:0;letter-spacing:-.01em}
+em{font-style:italic;color:var(--teal)}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.25rem}
+.mono{font:400 .72rem/1.4 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+header.top{background:var(--bg);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:.9rem;padding-bottom:.9rem;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.logo i{width:2.4rem;height:2.4rem;border:2px solid var(--teal);border-radius:.45rem;display:grid;place-items:center;font:700 1.2rem "Hanken Grotesk";font-style:normal;color:var(--teal)}
+.logo b{display:block;font:600 1rem "Hanken Grotesk";letter-spacing:.04em}
+.logo span{display:block;color:var(--muted);font-size:.58rem}
+nav{display:flex;align-items:center;gap:1.4rem;font-weight:600;font-size:.92rem}
+nav a{text-decoration:none}
+nav a.cta{background:var(--navy);color:#fff;padding:.7rem 1.3rem;border-radius:.2rem}
+.hero{background:var(--navy);color:var(--onnavy);position:relative;overflow:hidden}
+.hero svg{position:absolute;right:0;top:0;height:100%;width:62%;min-width:22rem;opacity:.9}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 38%,transparent 80%)}
+.hero .wrap{position:relative;z-index:2;padding-top:5.5rem;padding-bottom:5rem}
+.hero .mono{color:var(--sky);display:flex;align-items:center;gap:.8rem}
+.hero .mono:before{content:"";width:2.2rem;height:1px;background:var(--sky)}
+.hero h1{font-size:clamp(3.2rem,11vw,6rem);margin:1.5rem 0;max-width:9ch}
+.hero h1 em{color:var(--sky)}
+.hero p{max-width:28rem;color:#C9D8E6;font-size:1.05rem}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.btn{padding:.85rem 1.4rem;font-weight:600;font-size:.9rem;text-decoration:none;background:var(--teal);color:#fff;border:1px solid var(--teal)}
+.btn.ghost{background:transparent;border-color:#9FB4C8}
+.tick{background:var(--teal);color:#fff;overflow:hidden;white-space:nowrap;padding:.8rem 0}
+.tick div{display:inline-block;animation:slide 40s linear infinite}
+.tick span{margin:0 1.4rem}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tick div{animation:none}}
+section{padding:5rem 0}
+.intro{display:grid;grid-template-columns:1fr 1.4fr;gap:2rem}
+.intro .mono,.eyebrow{color:var(--teal)}
+.intro h2{font-size:clamp(2.2rem,6vw,3.4rem)}
+.intro p{color:var(--muted);max-width:24rem;margin:1.5rem 0}
+.link{font-weight:600;text-decoration:none;border-bottom:2px solid var(--teal);padding-bottom:.2rem}
+.paper{background:var(--paper)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.head h2{font-size:clamp(2.2rem,6vw,3.4rem)}
+.head p{color:var(--muted);max-width:20rem;margin:0}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.card{background:var(--card);padding:1.5rem;display:flex;flex-direction:column;gap:.7rem}
+.card .mono{color:var(--teal)}
+.card h3{font-size:2rem}
+.card p{color:var(--muted);margin:0;font-size:.95rem}
+.card .foot{margin-top:auto;border-top:1px solid var(--line);padding-top:.8rem;color:var(--muted)}
+.card.big{background:var(--navy);color:#fff;grid-row:span 2;min-height:22rem}
+.card.big p,.card.big .foot{color:#B9CBDC;border-color:#2A4468}
+.card.big .mono{color:var(--sky)}
+.card.big h3{margin-top:auto}
+.card.big .foot{margin-top:1.5rem}
+.ess{background:var(--card)}
+.ess ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ess li{padding:1.2rem 1rem 1.5rem;border-left:1px solid var(--line);font:400 1.7rem/1.1 "Instrument Serif",serif}
+.ess li:first-child{border-left:0;padding-left:0}
+.ess li .mono{display:block;color:var(--teal);margin-bottom:1.6rem}
+.note{color:var(--muted);margin-top:1rem}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:2rem;margin-top:2rem}
+.steps h3{font-size:1.7rem;margin-bottom:.5rem}
+.steps p{color:var(--muted);margin:0}
+.contact{background:var(--navy);color:#fff;text-align:left}
+.contact h2{font-size:clamp(2.4rem,7vw,4rem);max-width:14ch}
+.contact p{color:#C9D8E6;max-width:30rem;margin:1.2rem 0 0}
+.locs{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1rem;margin-top:3rem;border-top:1px solid #2A4468;padding-top:2rem}.locs h3{font-size:1.6rem}.locs p{margin:.3rem 0 .8rem}.locs a{color:var(--sky);font-weight:600;text-decoration:none;border-bottom:1px solid var(--sky)}
+footer{background:var(--navy);color:#9FB4C8;padding:1.5rem 0 2.5rem;border-top:1px solid #2A4468}
+@media(max-width:44rem){.intro,.bento{grid-template-columns:1fr}.card.big{grid-row:auto}.hero svg{width:100%;opacity:.45}nav a:not(.cta){display:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="logo" href="#"><i>H</i><div><b>HUD HAMIDA</b><span class="mono">General Trading · Consulting · Engineering</span></div></a>
+<nav><a href="#what">What we do</a><a href="#trading">Trading</a><a href="#approach">Our approach</a><a class="cta" href="#contact">Contact us</a></nav>
+</div></header>
+
+<div class="hero">
+<svg viewBox="0 0 600 500" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+<defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2B3F5C"/><stop offset=".6" stop-color="#B98B6B"/><stop offset="1" stop-color="#6B4A38"/></linearGradient></defs>
+<rect width="600" height="500" fill="url(#s)"/>
+<rect y="250" width="600" height="60" fill="#46607A" opacity=".7"/>
+<path d="M0 300 Q120 250 260 290 L260 320 L0 320Z" fill="#33463A" opacity=".8"/>
+<rect y="330" width="600" height="170" fill="#5A3E2E"/>
+<g fill="none" stroke="#2A1D14" stroke-width="7"><path d="M330 400V250M470 400V240M330 250L400 205L470 240M360 270L400 235L440 262M400 205V400"/></g>
+<rect x="320" y="330" width="170" height="80" fill="#9A7B66"/>
+<g fill="#C9B79F"><rect x="520" y="370" width="80" height="14"/><rect x="520" y="388" width="80" height="14"/><rect x="520" y="406" width="80" height="14"/></g>
+<g fill="#1B1B22"><circle cx="270" cy="345" r="9"/><rect x="262" y="354" width="16" height="42"/><circle cx="300" cy="352" r="9"/><rect x="292" y="361" width="16" height="42"/></g>
+</svg>
+<div class="wrap">
+<div class="mono">General trading · Consulting · Engineering</div>
+<h1>Ready for what you’re <em>building.</em></h1>
+<p>From the materials that get a job moving to the expertise that helps it take shape, HUD HAMIDA is ready to work alongside you.</p>
+<div class="btns"><a class="btn" href="#what">Explore what we do</a><a class="btn ghost" href="#trading">See trading supplies</a></div>
+</div></div>
+<div class="tick mono"><div>
+<span>◆ Business consultancy</span><span>◆ Serving Sierra Leone and beyond</span><span>◆ General trading</span><span>◆ Construction</span><span>◆ Renovation</span><span>◆ Engineering</span>
+<span>◆ Business consultancy</span><span>◆ Serving Sierra Leone and beyond</span><span>◆ General trading</span><span>◆ Construction</span><span>◆ Renovation</span><span>◆ Engineering</span>
+</div></div>
+
+<section><div class="wrap intro">
+<div class="mono">One capable partner</div>
+<div><h2>Good work needs the <em>right things</em> in place.</h2>
+<p>Sometimes that means sourcing the materials. Sometimes it means building, improving a space, or thinking through the next move. We bring practical services together, so you can focus on getting the work done.</p>
+<a class="link" href="#what">Meet our capabilities</a></div>
+</div></section>
+
+<section class="paper" id="what"><div class="wrap">
+<div class="head"><div><div class="mono eyebrow">What we bring to the table</div><h2>A range of ways to move forward.</h2></div><p>Practical support for businesses, builders and people with a project to get done.</p></div>
+<div class="bento">
+<div class="card big"><div class="mono">01 / 05</div><h3>Construction</h3><p>Careful craftsmanship, on-time delivery and attention to your budget, from the first plan through to the finished work.</p><div class="foot mono">Built with care</div></div>
+<div class="card"><div class="mono">02 / 05</div><h3>General trading</h3><p>Essential building and workshop materials sourced from trusted suppliers, ready for the work ahead.</p><div class="foot mono">Materials for the work</div></div>
+<div class="card"><div class="mono">03 / 05</div><h3>Renovation &amp; remodeling</h3><p>Thoughtful improvements shaped around how a space needs to work, and the value it can bring.</p><div class="foot mono">Make space work better</div></div>
+<div class="card"><div class="mono">04 / 05</div><h3>Business consultancy</h3><p>Strategic planning and advisory support to help businesses make considered decisions and move forward.</p><div class="foot mono">Plan the next step</div></div>
+<div class="card"><div class="mono">05 / 05</div><h3>Engineering solutions</h3><p>Practical engineering support and tailored solutions to help plan, coordinate and deliver your project.</p><div class="foot mono">Engineering for your project</div></div>
+</div></div></section>
+
+<section class="ess" id="trading"><div class="wrap">
+<div class="head"><div><div class="mono eyebrow">01 / General trading</div><h2>The essentials, <em>ready for work.</em></h2></div><p>We source everyday materials from trusted suppliers, helping keep the work moving with the things a build or workshop needs.</p></div>
+<ul>
+<li><span class="mono">01</span>Cement</li><li><span class="mono">02</span>Boards</li><li><span class="mono">03</span>Gates</li><li><span class="mono">04</span>Lubricants</li><li><span class="mono">05</span>Welding gases</li>
+</ul>
+<p class="note mono">✓ Sourced from trusted suppliers</p>
+</div></section>
+
+<section class="paper" id="approach"><div class="wrap">
+<div class="mono eyebrow">Our approach</div>
+<h2 style="font-size:clamp(2.2rem,6vw,3.4rem);margin-top:.5rem;max-width:16ch">Practical, careful, <em>on time.</em></h2>
+<div class="steps">
+<div><h3>Listen first</h3><p>We start with what you need the work to do, your timeline and your budget.</p></div>
+<div><h3>Plan it properly</h3><p>Materials, people and steps are lined up before work begins.</p></div>
+<div><h3>Deliver with care</h3><p>We build, supply or advise to a standard we are happy to put our name to.</p></div>
+</div></div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+<div class="mono" style="color:var(--sky)">Contact us</div>
+<h2 style="margin-top:.8rem">Have a project to get done?</h2>
+<p>Tell us what you need, whether it is supplies, a build or advice, and we will get back to you.</p>
+<div class="btns"><a class="btn" href="https://wa.me/23272292832">Message on WhatsApp</a><a class="btn ghost" href="mailto:hudhamida.2020@gmail.com">Send an email</a></div>
+<div class="locs">
+<div><h3>Wilberforce, Freetown</h3><p>64 Lumley Road, Wilberforce</p><a href="https://www.google.com/maps/search/?api=1&query=64+Lumley+Road+Wilberforce+Sierra+Leone">Open in Maps</a></div>
+<div><h3>Rogbere Junction</h3><p>8th Masiaka Lunsar Road, Rogbere Junction</p><a href="https://www.google.com/maps/search/?api=1&query=8th+Masiaka+Lunsar+Road+Rogbere+Junction+Sierra+Leone">Open in Maps</a></div>
+</div>
+</div></section>
+<footer><div class="wrap mono">&copy; 2026 HUD HAMIDA · Serving Sierra Leone and beyond</div></footer>
+</body>
+</html>
